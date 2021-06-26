@@ -42,7 +42,7 @@
         Task.Run(CloseMessage);
     }
 
-    public void SuccessfulMassage(string header, string message)
+    public void SuccessfullMessage(string header, string message)
     {
         Header = header;
         Message = message;
@@ -51,7 +51,7 @@
         Image = "demonick_toast_images/success_icon.png";
     }
 
-    public void WarningMassage(string header, string message)
+    public void WarningMessage(string header, string message)
     {
         Header = header;
         Message = message;
@@ -60,7 +60,7 @@
         Image = "demonick_toast_images/warning_icon.png";
     }
 
-    public void ErrorMassage(string header, string message)
+    public void ErrorMessage(string header, string message)
     {
         Header = header;
         Message = message;
@@ -74,13 +74,13 @@
         switch (status)
         {
             case 1:
-                SuccessfulMassage(header, message);
+                SuccessfulMessage(header, message);
                 break;
             case 2:
-                WarningMassage(header, message);
+                WarningMessage(header, message);
                 break;
             case 3:
-                ErrorMassage(header, message);
+                ErrorMessage(header, message);
                 break;
         }
     }
