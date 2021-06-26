@@ -8,14 +8,14 @@ Alert Component:
 _(e.g.  
             alert.ChooseMessageWithStatusCode(1, "Header message", "Body message");  
 **or**  
-            alert.SuccessfulMassage("Header message", "Body message");  
+            alert.SuccessfulMessage("Header message", "Body message");  
 **or**  
-            alert.ErrorMassage("Header message", "Body message");  
+            alert.ErrorMessage("Header message", "Body message");  
 **or**  
-            alert.WarningMassage("Header message", "Body message");   
+            alert.WarningMessage("Header message", "Body message");   
     )_  
 
 **Status codes:**  
-1 - Successful message alert  
+1 - Successfull message alert  
 2 - Warning message alert  
 3 - Error message alert  
