@@ -6,19 +6,14 @@ Alert Component:
 **5. Initialize AlertComponent class** _(e.g. AlertComponent alert; )_  
 **6. Use calling method for showing alert**  
 _(e.g.  
-protected override void OnAfterRender(bool firstRender)  
-    {  
-        if (firstRender)  
-        {  
             alert.ChooseMessageWithStatusCode(1, "Header message", "Body message");  
 **or**  
             alert.SuccessfulMassage("Header message", "Body message");  
 **or**  
             alert.ErrorMassage("Header message", "Body message");  
 **or**  
-            alert.WarningMassage("Header message", "Body message");  
-        }  
-    })_  
+            alert.WarningMassage("Header message", "Body message");   
+    )_  
 
 **Status codes:**  
 1 - Successful message alert  
