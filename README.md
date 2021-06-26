@@ -3,7 +3,7 @@ Alert Component:
 **2. Add the CSS file in wwwroot/css and include in _Host.cshtml** _(e.g. link href="css/demonick_toast.css" rel="stylesheet" )_  
 **3. Add image folder in wwwroot/demonick_toast_images**  
 **4. Add the component in page** _(e.g. <AlertComponent @ref="@alert" />)_  
-**5. Initialize AlertComponent class** _(e.g. AlertComponent alert = new AlertComponent(); )_  
+**5. Initialize AlertComponent class** _(e.g. AlertComponent alert; )_  
 **6. Use calling method for showing alert**  
 _(e.g.  
 protected override void OnAfterRender(bool firstRender)  
