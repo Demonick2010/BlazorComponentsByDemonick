@@ -24,49 +24,41 @@
 
     Timer timer;
 
-    bool showMessage;
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        if (firstRender)
-        {
-            timer = new Timer {Interval = 4000};
-            timer.Elapsed += ElapsedTimerHandler;
-            timer.Start();
-            StateHasChanged();
-        }
-    }
+    bool showMessage = false;
 
     void ElapsedTimerHandler(object sender, ElapsedEventArgs args)
     {
         Task.Run(CloseMessage);
     }
 
-    public void SuccessfullMessage(string header, string message)
+    public void SuccessfulMassage(string header, string message)
     {
         Header = header;
         Message = message;
         showMessage = true;
         CssClass = "demonick-toast-bg-success";
         Image = "demonick_toast_images/success_icon.png";
+        StartTimer();
     }
 
-    public void WarningMessage(string header, string message)
+    public void WarningMassage(string header, string message)
     {
         Header = header;
         Message = message;
         showMessage = true;
         CssClass = "demonick-toast-bg-warning";
         Image = "demonick_toast_images/warning_icon.png";
+        StartTimer();
     }
 
-    public void ErrorMessage(string header, string message)
+    public void ErrorMassage(string header, string message)
     {
         Header = header;
         Message = message;
         showMessage = true;
         CssClass = "demonick-toast-bg-error";
         Image = "demonick_toast_images/error_icon.png";
+        StartTimer();
     }
 
     public void ChooseMessageWithStatusCode(int? status, string header, string message)
@@ -74,18 +66,58 @@
         switch (status)
         {
             case 1:
-                SuccessfulMessage(header, message);
+                SuccessfulMassage(header, message);
                 break;
             case 2:
-                WarningMessage(header, message);
+                WarningMassage(header, message);
                 break;
             case 3:
-                ErrorMessage(header, message);
+                ErrorMassage(header, message);
                 break;
         }
     }
 
-    public async Task CloseMessage()
+    public void ChooseMessageWithStatusCode(int? status, string message)
+    {
+        switch (status)
+        {
+            case 1:
+                SuccessfulMassage("Successfull", message);
+                break;
+            case 2:
+                WarningMassage("Warning", message);
+                break;
+            case 3:
+                ErrorMassage("Error", message);
+                break;
+        }
+    }
+
+    public void ChooseMessageWithStatusCode(int status, string itemName, string action)
+    {
+        switch (status)
+        {
+            case 1:
+                SuccessfulMassage("Successfull", $"{itemName} {action} successfull!");
+                break;
+            case 2:
+                WarningMassage("Warning", $"{itemName} {action} have some warning!");
+                break;
+            case 3:
+                ErrorMassage("Error", $"{itemName} {action} failed!");
+                break;
+        }
+    }
+
+    void StartTimer()
+    {
+        timer = new Timer { Interval = 4000 };
+        timer.Elapsed += ElapsedTimerHandler;
+        timer.Start();
+        StateHasChanged();
+    }
+
+    async Task CloseMessage()
     {
         timer.Stop();
         timer.Elapsed -= ElapsedTimerHandler;
